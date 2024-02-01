@@ -129,7 +129,7 @@ std::vector<RobloxProcessHandle> GetRobloxProcesses(bool open_all, bool include_
 	std::vector<RobloxProcessHandle> result;
 	if (include_client)
 	{
-		for (auto pid : ProcUtil::GetProcessIdsByImageName("RobloxPlayerBeta.exe")) result.emplace_back(pid, RobloxHandleType::Client, open_all);
+		for (auto pid : ProcUtil::GetProcessIdsByImageName("eurotrucks2.exe")) result.emplace_back(pid, RobloxHandleType::Client, open_all);
 		for (auto pid : ProcUtil::GetProcessIdsByImageName("Windows10Universal.exe")) result.emplace_back(pid, RobloxHandleType::UWP, open_all);
 	}
 	if (include_studio)
@@ -683,7 +683,7 @@ std::filesystem::path GetCurrentClientVersionPath()
 		DWORD length = sizeof(version) - 1;
 		if (RegQueryValueEx(key, "version", NULL, NULL, (LPBYTE)version, &length) == ERROR_SUCCESS)
 		{
-			return GetLocalAppDataPath() / "Roblox" / "Versions" / version / "RobloxPlayerBeta.exe";
+			return GetLocalAppDataPath() / "Roblox" / "Versions" / version / "eurotrucks2.exe";
 		}
 	}
 	return {};
